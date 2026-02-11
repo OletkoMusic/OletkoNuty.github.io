@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>OletkoNuty 🎵 - Darmowe nuty na saksofon i fortepian</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (ikony) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Nasz styl -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <h1>OletkoNuty</h1>
+            <p class="subtitle">🎷 Darmowe nuty na saksofon i fortepian 🎹</p>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                Wszystkie nuty za darmo. Pobieraj ile chcesz! 🎼
+            </p>
+        </header>
+
+        <!-- WYBÓR INSTRUMENTU -->
+        <div class="instrument-selector">
+            <button class="instrument-btn" data-instrument="saksofon">
+                <i class="fas fa-music"></i>
+                🎷 Saksofon
+            </button>
+            <button class="instrument-btn" data-instrument="fortepian">
+                <i class="fas fa-piano"></i>
+                🎹 Fortepian
+            </button>
+        </div>
+
+        <!-- WYSZUKIWARKA -->
+        <div class="search-section">
+            <h2 class="search-title">
+                <i class="fas fa-search" style="color: var(--accent);"></i>
+                Znajdź swoje nuty
+            </h2>
+            
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Wpisz tytuł, np. Cicha noc, Sto lat, Dla Elizy..."
+                    autocomplete="off"
+                >
+                <button id="searchBtn">
+                    <i class="fas fa-search"></i>
+                    Szukaj
+                </button>
+            </div>
+
+            <!-- WYNIKI WYSZUKIWANIA -->
+            <div id="resultsContainer" class="results-container">
+                <div class="empty-state">
+                    <div class="note-icon">🎯</div>
+                    <h3>Wpisz tytuł w wyszukiwarkę</h3>
+                    <p style="margin-top: 20px; color: var(--text-secondary);">
+                        Znajdź nuty które Cię interesują!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- DOSTĘPNE NUTY -->
+        <div style="margin-top: 60px;">
+            <h2 style="font-size: 2em; margin-bottom: 30px; display: flex; align-items: center; gap: 15px;">
+                <i class="fas fa-star" style="color: #ffeaa7;"></i>
+                Popularne nuty
+                <span style="font-size: 0.5em; background: var(--accent); padding: 5px 15px; border-radius: 20px;">
+                    na <span id="currentInstrumentLabel">saksofon</span>
+                </span>
+            </h2>
+            
+            <div id="sheetMusicGrid" class="sheet-music-grid">
+                <!-- Tutaj JavaScript wstawi karty -->
+            </div>
+        </div>
+
+        <!-- JAK DODAĆ NUTY? (INSTRUKCJA DLA ADMINA) -->
+        <div style="margin-top: 80px; background: rgba(0,0,0,0.2); border-radius: 20px; padding: 40px;">
+            <h3 style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px;">
+                <i class="fas fa-crown" style="color: gold;"></i>
+                Panel Admina (tylko dla Ciebie!)
+            </h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div style="background: var(--glass-bg); padding: 25px; border-radius: 15px;">
+                    <div style="font-size: 2em; margin-bottom: 15px;">📄</div>
+                    <h4 style="margin-bottom: 10px;">1. Dodaj plik PDF</h4>
+                    <p style="color: var(--text-secondary);">Wrzuć plik do folderu: <code style="background: black; padding: 5px; border-radius: 5px;">nuty/saksofon/</code></p>
+                </div>
+                
+                <div style="background: var(--glass-bg); padding: 25px; border-radius: 15px;">
+                    <div style="font-size: 2em; margin-bottom: 15px;">📝</div>
+                    <h4 style="margin-bottom: 10px;">2. Edytuj utwory.json</h4>
+                    <p style="color: var(--text-secondary);">Dodaj wpis w <code>script.js</code> w sekcji utworyDatabase</p>
+                </div>
+                
+                <div style="background: var(--glass-bg); padding: 25px; border-radius: 15px;">
+                    <div style="font-size: 2em; margin-bottom: 15px;">🚀</div>
+                    <h4 style="margin-bottom: 10px;">3. Zapisz i gotowe!</h4>
+                    <p style="color: var(--text-secondary);">Strona automatycznie się zaktualizuje</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 30px; padding: 20px; background: rgba(255,107,107,0.2); border-left: 5px solid var(--accent); border-radius: 10px;">
+                <i class="fas fa-info-circle"></i>
+                <strong>WSKAZÓWKA:</strong> Możesz edytować pliki bezpośrednio na GitHubie przez przeglądarkę!
+                Wystarczy wejść w plik, kliknąć edytuj (🖊️) i zapisać.
+            </p>
+        </div>
+
+        <!-- STOPKA -->
+        <footer>
+            <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; font-size: 1.5em;">
+                <span>🎷</span>
+                <span>🎹</span>
+                <span>🎵</span>
+                <span>🎼</span>
+            </div>
+            <p style="margin-bottom: 10px; font-size: 1.2em;">
+                OletkoNuty © 2024 - Wszystkie nuty za darmo, zawsze! 
+                <span style="display: inline-block; animation: pulse 2s infinite;">❤️</span>
+            </p>
+            <p style="color: var(--text-secondary);">
+                Działa 24/7 • Całkowicie darmowe • Nowe nuty co tydzień!
+            </p>
+            <p style="margin-top: 30px; font-size: 0.8em; opacity: 0.6;">
+                Strona działa na GitHub Pages • 0 zł rocznie • Zero reklam
+            </p>
+        </footer>
+    </div>
+
+    <!-- Skrypty -->
+    <script src="script.js"></script>
+</body>
+</html>
